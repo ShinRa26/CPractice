@@ -5,6 +5,6 @@
 
 void printArgs(int, char*[]);
 void freeSlice(int, char*[]);
-const char** sliceArray(int, char*[]);
+char** sliceArray(int, char*[]);
 
 #endif

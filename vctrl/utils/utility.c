@@ -1,5 +1,14 @@
 #include "utility.h"
 
+void freeSlice(int numArgs, char *args[]) {
+    int i = 0;
+    for(i = 0; i < numArgs; i++) {
+        free(args[i]);
+    }
+    free(args);
+}
+
+
 char** sliceArray(int numArgs, char *args[]) {
     int i = 0;
     char **slice = (char**)malloc(numArgs*sizeof(char*));
@@ -16,12 +25,4 @@ void printAll(int numArgs, char *args[]) {
     for(i = 0; i < numArgs; i++) {
         printf("%s\n", args[i]);
     }
-}
-
-void freeSlice(int numArgs, char *args[]) {
-    int i = 0;
-    for(i = 0; i < numArgs; i++) {
-        free(args[i]);
-    }
-    free(args);
 }
