@@ -1,11 +1,15 @@
 #include "utility.h"
 
-void freeSlice(int numArgs, char *args[]) {
+void cleanupSlices(int numArgs, char *args[]) {
     int i = 0;
+    printf("Here i am!\n");
     for(i = 0; i < numArgs; i++) {
-        free(args[i]);
+        printf("Arg[%d]: %s\n", i, args[i]);
+        free((char*)args[i]);
+        printf("Freed Position!\n");
     }
     free(args);
+    printf("All malloc freed\n");
 }
 
 

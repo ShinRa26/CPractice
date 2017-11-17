@@ -10,13 +10,9 @@
 #define DEBUG 1
 
 
-void execute(int numArgs, char *args[]) {
-    char *action = args[0];
-    char **subargs = sliceArray(numArgs, args);
-    freeSlice(numArgs, args); // Frees the initial slice of arguments
-    if(DEBUG) {
-        printf("%s\n", action);
-    }
+void execute(int numArgs, char **args) {
+    char *action = args[1];
+    char **subargs = sliceArray(numArgs-1, args);
     
     /* Switch with a string equivalent? */
     if(strcmp(action, INIT) == 0) {
@@ -39,6 +35,8 @@ void execute(int numArgs, char *args[]) {
         printf("%s is not a valid flag!\n", action);
         exit(EXIT_FAILURE);
     }
+
+    cleanupSlices(numArgs-1, args);
 }
 
 int main(int argc, char *argv[]) {
@@ -46,12 +44,5 @@ int main(int argc, char *argv[]) {
         printf("You must pass an action!\n");
         exit(EXIT_FAILURE);
     }
-    int numArgs = argc-1;
-    char **cmdArgs = sliceArray(numArgs, argv);
-    int i;
-    for(i = 0; i < numArgs; i++) {
-        printf("%s\n", cmdArgs[i]);
-    }
-    freeSlice(argc, argv); // TODO: FIX ERROR IN FREESLICE
-    // execute(numArgs, cmdArgs);
+    execute(argc, argv);
 }
