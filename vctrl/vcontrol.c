@@ -3,17 +3,17 @@
 #include <stdlib.h>
 
 /* Custom includes */
+#include "utils/argsArray.h"
 #include "utils/constants.h"
-#include "utils/utility.h"
 #include "vcontrol.h"
 
 #define DEBUG 1
 
 
-void execute(int numArgs, char **args) {
-    char *action = args[1];
-    char **subargs = sliceArray(numArgs-1, args);
-    
+void execute(struct Arguments *arr) {
+    const char *action = "Titties";
+
+
     /* Switch with a string equivalent? */
     if(strcmp(action, INIT) == 0) {
         printf("INIT command!\n");
@@ -36,13 +36,23 @@ void execute(int numArgs, char **args) {
         exit(EXIT_FAILURE);
     }
 
-    cleanupSlices(numArgs-1, args);
 }
 
+
+/** TESTING PURPOSES ONLY **/
 int main(int argc, char *argv[]) {
     if(argc == 1) {
         printf("You must pass an action!\n");
         exit(EXIT_FAILURE);
     }
-    execute(argc, argv);
+
+    struct Arguments *arguments = (struct Arguments*)malloc(sizeof(struct Arguments));
+    arguments = initArguments(arguments);
+    addAllArgs(arguments, argv, argc);
+    printInfo(arguments);
+    addArg(arguments, "TestAddition");
+    addArg(arguments, "Munchytits");
+    addArg(arguments, "munty");
+    addArg(arguments, "Erebor");
+    printInfo(arguments);
 }

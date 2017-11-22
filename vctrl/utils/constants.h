@@ -2,9 +2,11 @@
 #define CONSTANTS_H
 
 /* String constants */
-const char* INIT = "init";
-const char* ADD = "add";
-const char* COMMIT = "commit";
-const char* REVERT = "revert";
+#define INIT "init"
+#define ADD "add"
+#define COMMIT "commit"
+#define REVERT "revert"
+
+#define BUF 50
 
 #endif

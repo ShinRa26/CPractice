@@ -1,9 +1,9 @@
 #ifndef VCONTROL_H
 #define VCONTROL_H
 
-void execute(int, char*[]);
-void parseAdd(int, char*[]);
-void parseCommit(int, char*[]);
-void parseRevert(int, char*[]);
+void execute(struct Arguments*);
+void parseAdd(struct Arguments*);
+void parseCommit(struct Arguments*);
+void parseRevert(struct Arguments*);
 
 #endif

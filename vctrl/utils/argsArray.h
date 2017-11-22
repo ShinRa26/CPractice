@@ -1,14 +1,16 @@
 #ifndef ARGS_ARRAY_H
 #define ARGS_ARRAY_H
 
-struct argsArray {
+struct Arguments {
     const char **argv;
     int argc;
 };
 
-void initArgsArray(struct argsArray*);
-void addAllArgs(struct argsArray*, const char**);
-void addSingleArg(struct argsArray*, const char*);
+struct Arguments* initArguments();
+void addAllArgs(struct Arguments*, const char**, int);
+void addArg(struct Arguments*, const char*);
+void removeLeadingArg(struct Arguments*);
+void printInfo(struct Arguments*);
 
 
 #endif

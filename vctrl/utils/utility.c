@@ -1,4 +1,5 @@
 #include "utility.h"
+#include <stdio.h>
 
 void cleanupSlices(int numArgs, char *args[]) {
     int i = 0;
