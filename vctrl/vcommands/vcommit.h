@@ -2,7 +2,7 @@
 #define VCOMMIT_H
 
 struct VCommit {
-    // Function pointers!
+    int tmp;
 };
 
 #endif

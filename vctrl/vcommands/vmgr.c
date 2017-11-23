@@ -7,9 +7,13 @@
 /* Init Commands */
 struct VMgr* initVMgr() {
     struct Vmgr *mgr = (struct VMgr*)malloc(sizeof(struct VMgr));
-    //mgr->add = initVAdd();
+    // mgr->add = initVAdd();
     //mgr->commit = initVCommit();
     //mgr->revert = initVRevert();
 
     return mgr;
+}
+
+void initVCtrl() {
+    
 }

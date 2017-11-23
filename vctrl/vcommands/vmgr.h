@@ -10,8 +10,8 @@ struct VMgr {
 };
 
 /* Init */
-void initVCtrl();
 struct VMgr* initVMgr();
+void initVCtrl();
 
 /* Add commands */
 
