@@ -6,6 +6,7 @@
 #define ADD "add"
 #define COMMIT "commit"
 #define REVERT "revert"
+#define INIT_DIR ".vctrl"
 
 #define BUF 50
 

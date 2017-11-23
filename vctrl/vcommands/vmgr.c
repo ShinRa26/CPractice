@@ -2,7 +2,9 @@
 #include "vadd.h"
 #include "vcommit.h"
 #include "vrevert.h"
+
 #include <stdio.h>
+#include <unistd.h>
 
 /* Init Commands */
 struct VMgr* initVMgr() {
@@ -15,5 +17,7 @@ struct VMgr* initVMgr() {
 }
 
 void initVCtrl() {
-    
+    char cwd[1024];
+    getcwd(cwd, sizeof(cwd));
+    // TODO: Implement mkdir();
 }

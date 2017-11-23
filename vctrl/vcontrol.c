@@ -6,6 +6,7 @@
 #include "utils/argsArray.h"
 #include "utils/constants.h"
 #include "vcontrol.h"
+#include "vcommands/vmgr.h"
 
 #define DEBUG 1
 
@@ -13,11 +14,13 @@
 void execute(struct Arguments *arr) {
     const char *action = arr->argv[0];
 
+    struct VMgr *mgr = initVMgr();
 
     /* Switch with a string equivalent? */
     if(strcmp(action, INIT) == 0) {
         printf("INIT command!\n");
-        // Parse Init commands
+        char *cwd = initVCtrl();
+        printf("%s\n",cwd);
     }
     else if(strcmp(action, ADD) == 0) {
         printf("ADD command!\n");
@@ -36,22 +39,4 @@ void execute(struct Arguments *arr) {
         exit(EXIT_FAILURE);
     }
 
-}
-
-
-/** TESTING PURPOSES ONLY **/
-int main(int argc, const char *argv[]) {
-    if(argc == 1) {
-        printf("You must pass an action!\n");
-        exit(EXIT_FAILURE);
-    }
-
-    struct Arguments *arguments = (struct Arguments*)malloc(sizeof(struct Arguments));
-    arguments = initArguments(arguments);
-    addAllArgs(arguments, argv, argc);
-    removeLeadingArg(arguments);
-    execute(arguments);
-    free(arguments);
-
-    return 0;
 }

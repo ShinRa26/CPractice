@@ -1,14 +1,20 @@
-#include <stdio.h>
 #include "vctrl/vcontrol.h"
+#include "vctrl/utils/argsArray.h"
 
-int main(int argc, char *argv[]) {
-    if(argc == 0 || argc == 1) {
-        fprintf(stderr, "Insufficient arguments!\n");
-        exit(-1);
+#include <stdlib.h>
+
+int main(int argc, const char *argv[]) {
+    if(argc == 1) {
+        printf("You must pass an action!\n");
+        exit(EXIT_FAILURE);
     }
 
-    int numArgs = argc-1;
-    char **args;
-    args = sliceArray(numArgs, argv);
-    execute(numArgs, args);
+    struct Arguments *arguments = (struct Arguments*)malloc(sizeof(struct Arguments));
+    arguments = initArguments(arguments);
+    addAllArgs(arguments, argv, argc);
+    removeLeadingArg(arguments);
+    execute(arguments);
+    free(arguments);
+
+    return 0;
 }
