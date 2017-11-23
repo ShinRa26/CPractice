@@ -11,7 +11,7 @@
 
 
 void execute(struct Arguments *arr) {
-    const char *action = "Titties";
+    const char *action = arr->argv[0];
 
 
     /* Switch with a string equivalent? */
@@ -40,7 +40,7 @@ void execute(struct Arguments *arr) {
 
 
 /** TESTING PURPOSES ONLY **/
-int main(int argc, char *argv[]) {
+int main(int argc, const char *argv[]) {
     if(argc == 1) {
         printf("You must pass an action!\n");
         exit(EXIT_FAILURE);
@@ -49,10 +49,9 @@ int main(int argc, char *argv[]) {
     struct Arguments *arguments = (struct Arguments*)malloc(sizeof(struct Arguments));
     arguments = initArguments(arguments);
     addAllArgs(arguments, argv, argc);
-    printInfo(arguments);
-    addArg(arguments, "TestAddition");
-    addArg(arguments, "Munchytits");
-    addArg(arguments, "munty");
-    addArg(arguments, "Erebor");
-    printInfo(arguments);
+    removeLeadingArg(arguments);
+    execute(arguments);
+    free(arguments);
+
+    return 0;
 }

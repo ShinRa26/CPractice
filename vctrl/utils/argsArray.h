@@ -10,7 +10,7 @@ struct Arguments* initArguments();
 void addAllArgs(struct Arguments*, const char**, int);
 void addArg(struct Arguments*, const char*);
 void removeLeadingArg(struct Arguments*);
+void memCleanup(struct Arguments*);
 void printInfo(struct Arguments*);
-
 
 #endif

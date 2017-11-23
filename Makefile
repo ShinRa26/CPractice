@@ -4,7 +4,18 @@ CFLAGS=-Wall
 UTILS=vctrl/utils/
 VCOMMANDS=vctrl/vcommands/
 ROOT=vctrl/
-OUTPUT=vctrl
+OUTPUT=vcontrol
+CFILES=*.c
 
 all:
-	$(CC) $(CFLAGS) $(ROOT)*.c $(UTILS)*.c -o $(OUTPUT)
+	$(CC) $(CFLAGS) $(ROOT)$(CFILES) $(UTILS)$(CFILES) -o $(OUTPUT)
+
+clean:
+	clear
+	rm $(OUTPUT)
+	$(CC) $(CFLAGS) $(ROOT)$(CFILES) $(UTILS)$(CFILES) -o $(OUTPUT)
+
+windows:
+	clear
+	rm vcontrol.exe vcontrol.exe.stackdump
+	$(CC) $(CFLAGS) $(ROOT)$(CFILES) $(UTILS)$(CFILES) -o $(OUTPUT)
