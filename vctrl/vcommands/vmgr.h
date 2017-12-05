@@ -2,11 +2,11 @@
 #define VMGR_H
 
 struct VMgr {
+    void (*init)(void);
     struct VAdd *add;
     struct VCommit *commit;
     struct VRevert *revert;
 
-    // Function pointers!
 };
 
 /* Init */

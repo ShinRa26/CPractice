@@ -8,19 +8,13 @@
 #include "vcontrol.h"
 #include "vcommands/vmgr.h"
 
-#define DEBUG 1
-
-
 void execute(struct Arguments *arr) {
     const char *action = arr->argv[0];
-
     struct VMgr *mgr = initVMgr();
 
-    /* Switch with a string equivalent? */
     if(strcmp(action, INIT) == 0) {
         printf("INIT command!\n");
-        char *cwd = initVCtrl();
-        printf("%s\n",cwd);
+        // Initialise VCtrl folder in current directory
     }
     else if(strcmp(action, ADD) == 0) {
         printf("ADD command!\n");
@@ -38,5 +32,4 @@ void execute(struct Arguments *arr) {
         printf("%s is not a valid flag!\n", action);
         exit(EXIT_FAILURE);
     }
-
 }
