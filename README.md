@@ -1,4 +1,3 @@
-# VCtrlC
-Rework of VCtrl project in C.
+# Practice for C
+Rework of VControl project in C.
 Really just for learning a bit of C.
-...and maybe to clean up VCtrl a bit.
